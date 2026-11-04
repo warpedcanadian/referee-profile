@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Carson Strachan's hockey officiating history, with game totals, seasons, rinks, and partners.">
+  <meta name="theme-color" content="#102d31">
+  <title>Carson Strachan · Refereeing</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+  <header class="masthead">
+    <div class="shell">
+      <nav aria-label="Main navigation" class="nav">
+        <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">CS</span><span>Carson Strachan<span class="brand-sub">Hockey official</span></span></a>
+        <div class="nav-links"><a href="#seasons">Seasons</a><a href="#rinks">Rinks</a><a href="#partners">Partners</a><a href="#games">Game log</a></div>
+      </nav>
+      <div class="hero">
+        <div class="hero-copy"><p class="eyebrow">Carson Strachan</p><h1>Hockey officiating<br>stats</h1><p id="coverage" class="hero-detail">Loading game history…</p></div>
+        <svg class="rink-art" viewBox="0 0 360 225" aria-hidden="true"><rect x="12" y="12" width="336" height="201" rx="70"/><path d="M180 12v201M105 12v201M255 12v201"/><circle cx="180" cy="112.5" r="29"/><circle cx="180" cy="112.5" r="3"/><circle cx="73" cy="64" r="23"/><circle cx="73" cy="161" r="23"/><circle cx="287" cy="64" r="23"/><circle cx="287" cy="161" r="23"/><path d="M38 80v65M322 80v65"/><circle class="puck" cx="243" cy="151" r="10"/></svg>
+      </div>
+      <div class="hero-bottom"><span class="live-dot" aria-hidden="true"></span><span id="last-updated">Saved game data</span><span class="season-note">Seasons run June 1–May 31</span></div>
+    </div>
+  </header>
+  <main id="dashboard" class="shell">
+    <div id="error" class="error" role="alert" hidden></div>
+    <section class="filters" aria-label="Filter game history">
+      <div class="filter-heading"><h2>Explore the log</h2><p>Choose a season, rink, or level.</p></div>
+      <label>Season<select id="season"><option value="">All seasons</option></select></label>
+      <label>Rink<select id="rink"><option value="">All rinks</option></select></label>
+      <label>Level<select id="level"><option value="">All levels</option></select></label>
+      <button id="reset" class="quiet-button">Reset</button>
+    </section>
+    <div id="results" class="results-note" aria-live="polite"></div>
+    <section id="metrics" class="metrics" aria-label="Game totals"></section>
+    <div class="two-col">
+      <section id="seasons" class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">Across the years</p><h2>Games by season</h2></div><span class="tag">June–May</span></div><p class="panel-note">Rink and level filters apply to this comparison.</p><div id="season-chart" class="chart" role="img" aria-label="Games by season"></div></section>
+      <section class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">On the calendar</p><h2 id="monthly-title">Monthly games</h2></div></div><p id="monthly-note" class="panel-note"></p><div id="month-chart" class="chart" role="img" aria-label="Games by month"></div></section>
+    </div>
+    <div class="two-col rankings">
+      <section id="rinks" class="panel"><div class="panel-heading"><div><p class="eyebrow">Places worked</p><h2>Rinks</h2></div><span id="rink-count" class="tag"></span></div><table><caption class="sr-only">Rinks ranked by games</caption><thead><tr><th scope="col">Rink</th><th scope="col" class="numeric">Games</th><th scope="col" class="numeric">Hours</th></tr></thead><tbody id="rink-rows"></tbody></table><button class="text-button" id="all-rinks">Show all rinks</button></section>
+      <section id="partners" class="panel"><div class="panel-heading"><div><p class="eyebrow">Shared assignments</p><h2>Partners</h2></div><span id="partner-count" class="tag"></span></div><p class="panel-note">First names and last initials. Matching labels can refer to different people.</p><table><caption class="sr-only">Partners ranked by games together</caption><thead><tr><th scope="col">Partner</th><th scope="col" class="numeric">Games together</th></tr></thead><tbody id="partner-rows"></tbody></table><button class="text-button" id="all-partners">Show all partners</button></section>
+    </div>
+    <section class="panel level-panel"><div class="panel-heading"><div><p class="eyebrow">Types of games</p><h2>Game levels</h2></div></div><div id="level-bars" class="level-bars"></div></section>
+    <section id="games" class="panel log-panel"><div class="panel-heading"><div><p class="eyebrow">The latest entries</p><h2>Game log</h2></div><button class="quiet-button" id="download">Download filtered CSV</button></div><div class="table-scroll"><table><caption class="sr-only">Most recent games matching the filters</caption><thead><tr><th scope="col">Date</th><th scope="col">Rink</th><th scope="col">Level</th><th scope="col" class="numeric">Hours</th><th scope="col">Partners</th></tr></thead><tbody id="game-rows"></tbody></table></div><div class="pagination"><button id="previous" class="quiet-button">Previous</button><span id="page-note"></span><button id="next" class="quiet-button">Next</button></div></section>
+  </main>
+  <footer class="shell footer"><p>Carson Strachan · Refereeing</p><p>Hours reflect the game lengths in the log.</p><a href="https://github.com/warpedcanadian/referee-profile">View the project on GitHub</a></footer>
+</body>
+</html>
+
