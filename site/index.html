@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Carson Strachan's hockey officiating history, with game totals, seasons, rinks, and partners.">
-  <meta name="theme-color" content="#102d31">
-  <title>Carson Strachan · Refereeing</title>
+  <meta name="description" content="Meet hockey official Carson Strachan and explore his officiating experience and game stats.">
+  <meta name="theme-color" content="#121212">
+  <title>Carson Strachan · Hockey Official</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
 </head>
@@ -14,37 +14,105 @@
   <header class="masthead">
     <div class="shell">
       <nav aria-label="Main navigation" class="nav">
-        <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">CS</span><span>Carson Strachan<span class="brand-sub">Hockey official</span></span></a>
-        <div class="nav-links"><a href="#seasons">Seasons</a><a href="#rinks">Rinks</a><a href="#partners">Partners</a><a href="#games">Game log</a></div>
+        <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">CS</span><span>Carson Strachan</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#dashboard">Stats</a>
+          <a href="#games">Game log</a>
+        </div>
       </nav>
       <div class="hero">
-        <div class="hero-copy"><p class="eyebrow">Carson Strachan</p><h1>Hockey officiating<br>stats</h1><p id="coverage" class="hero-detail">Loading game history…</p></div>
-        <svg class="rink-art" viewBox="0 0 360 225" aria-hidden="true"><rect x="12" y="12" width="336" height="201" rx="70"/><path d="M180 12v201M105 12v201M255 12v201"/><circle cx="180" cy="112.5" r="29"/><circle cx="180" cy="112.5" r="3"/><circle cx="73" cy="64" r="23"/><circle cx="73" cy="161" r="23"/><circle cx="287" cy="64" r="23"/><circle cx="287" cy="161" r="23"/><path d="M38 80v65M322 80v65"/><circle class="puck" cx="243" cy="151" r="10"/></svg>
+        <div class="hero-copy">
+          <p class="eyebrow">Ice hockey official</p>
+          <h1>Carson<br>Strachan</h1>
+          <p class="hero-detail">Officiating experience and game stats from youth, high school, junior, college, and adult hockey.</p>
+          <a class="primary-link" href="#dashboard">Explore the stats <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="portrait">
+          <img src="assets/carson-strachan.webp" width="1056" height="1056" alt="Carson Strachan in his hockey official’s sweater" fetchpriority="high">
+        </div>
       </div>
-      <div class="hero-bottom"><span class="live-dot" aria-hidden="true"></span><span id="last-updated">Saved game data</span><span class="season-note">Seasons run June 1–May 31</span></div>
     </div>
   </header>
-  <main id="dashboard" class="shell">
-    <div id="error" class="error" role="alert" hidden></div>
-    <section class="filters" aria-label="Filter game history">
-      <div class="filter-heading"><h2>Explore the log</h2><p>Choose a season, rink, or level.</p></div>
-      <label>Season<select id="season"><option value="">All seasons</option></select></label>
-      <label>Rink<select id="rink"><option value="">All rinks</option></select></label>
-      <label>Level<select id="level"><option value="">All levels</option></select></label>
-      <button id="reset" class="quiet-button">Reset</button>
+  <main class="shell">
+    <section class="profile" id="about" aria-labelledby="about-title">
+      <div class="profile-bio">
+        <p class="eyebrow">Background</p>
+        <h2 id="about-title">About me</h2>
+        <p>My officiating log starts at the Utah Olympic Oval in October 2020. Since then, I’ve worked youth, high school, junior, college, adult, and sled hockey, including games in the NA3HL, NCDC, and ACHA Divisions I and II.</p>
+        <p>I returned to the Rocky Mountain District Advanced Officials Experience as an Instructor Intern in 2025 after attending in 2022, 2023, and 2024.</p>
+      </div>
+      <aside class="leadership" aria-labelledby="leadership-title">
+        <p class="eyebrow">Board service</p>
+        <h3 id="leadership-title">General Board Member</h3>
+        <p>Wasatch Ice Hockey Officials Association (WIHOA)</p>
+        <p class="leadership-dates"><time datetime="2023-06">June 2023</time> – <time datetime="2024-12">December 2024</time></p>
+      </aside>
     </section>
-    <div id="results" class="results-note" aria-live="polite"></div>
-    <section id="metrics" class="metrics" aria-label="Game totals"></section>
-    <div class="two-col">
-      <section id="seasons" class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">Across the years</p><h2>Games by season</h2></div><span class="tag">June–May</span></div><p class="panel-note">Rink and level filters apply to this comparison.</p><div id="season-chart" class="chart" role="img" aria-label="Games by season"></div></section>
-      <section class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">On the calendar</p><h2 id="monthly-title">Monthly games</h2></div></div><p id="monthly-note" class="panel-note"></p><div id="month-chart" class="chart" role="img" aria-label="Games by month"></div></section>
-    </div>
-    <div class="two-col rankings">
-      <section id="rinks" class="panel"><div class="panel-heading"><div><p class="eyebrow">Places worked</p><h2>Rinks</h2></div><span id="rink-count" class="tag"></span></div><table><caption class="sr-only">Rinks ranked by games</caption><thead><tr><th scope="col">Rink</th><th scope="col" class="numeric">Games</th><th scope="col" class="numeric">Hours</th></tr></thead><tbody id="rink-rows"></tbody></table><button class="text-button" id="all-rinks">Show all rinks</button></section>
-      <section id="partners" class="panel"><div class="panel-heading"><div><p class="eyebrow">Shared assignments</p><h2>Partners</h2></div><span id="partner-count" class="tag"></span></div><p class="panel-note">First names and last initials. Matching labels can refer to different people.</p><table><caption class="sr-only">Partners ranked by games together</caption><thead><tr><th scope="col">Partner</th><th scope="col" class="numeric">Games together</th></tr></thead><tbody id="partner-rows"></tbody></table><button class="text-button" id="all-partners">Show all partners</button></section>
-    </div>
-    <section class="panel level-panel"><div class="panel-heading"><div><p class="eyebrow">Types of games</p><h2>Game levels</h2></div></div><div id="level-bars" class="level-bars"></div></section>
-    <section id="games" class="panel log-panel"><div class="panel-heading"><div><p class="eyebrow">The latest entries</p><h2>Game log</h2></div><button class="quiet-button" id="download">Download filtered CSV</button></div><div class="table-scroll"><table><caption class="sr-only">Most recent games matching the filters</caption><thead><tr><th scope="col">Date</th><th scope="col">Rink</th><th scope="col">Level</th><th scope="col" class="numeric">Hours</th><th scope="col">Partners</th></tr></thead><tbody id="game-rows"></tbody></table></div><div class="pagination"><button id="previous" class="quiet-button">Previous</button><span id="page-note"></span><button id="next" class="quiet-button">Next</button></div></section>
+    <section id="experience" class="experience" aria-labelledby="experience-title">
+      <p class="eyebrow">Professional development</p>
+      <h2 id="experience-title">Officiating camps and events</h2>
+      <p class="experience-note">RMDAOE stands for Rocky Mountain District Advanced Officials Experience.</p>
+      <div class="experience-grid">
+        <div class="experience-year featured-year">
+          <h3>2025</h3>
+          <ul>
+            <li><strong>RMDAOE</strong><span class="event-role">Instructor Intern</span></li>
+            <li>BCHL Officiating Combine</li>
+            <li>USA Hockey Advanced Officiating Symposium</li>
+          </ul>
+        </div>
+        <div class="experience-year">
+          <h3>2024</h3>
+          <ul>
+            <li>RMDAOE</li>
+            <li>Men’s Northern Futures Camp</li>
+            <li>WHL High Performance Officiating Exposure Camp</li>
+          </ul>
+        </div>
+        <div class="experience-year">
+          <h3>2023</h3>
+          <ul>
+            <li>RMDAOE</li>
+            <li>AODP Prospect Camp</li>
+          </ul>
+        </div>
+        <div class="experience-year">
+          <h3>2022</h3>
+          <ul>
+            <li>RMDAOE</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="dashboard" aria-labelledby="dashboard-title">
+      <div class="dashboard-intro">
+        <div><p class="eyebrow">Game history</p><h2 id="dashboard-title">Officiating stats</h2></div>
+        <p id="coverage" class="dashboard-coverage">Loading game history…</p>
+        <div class="dashboard-meta"><span class="live-dot" aria-hidden="true"></span><span id="last-updated">Saved game data</span><span class="season-note">Seasons run June 1–May 31</span></div>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <section class="filters" aria-label="Filter game history">
+        <div class="filter-heading"><h2>Explore the log</h2><p>Choose a season, rink, or level.</p></div>
+        <label>Season<select id="season"><option value="">All seasons</option></select></label>
+        <label>Rink<select id="rink"><option value="">All rinks</option></select></label>
+        <label>Level<select id="level"><option value="">All levels</option></select></label>
+        <button id="reset" class="quiet-button">Reset</button>
+      </section>
+      <div id="results" class="results-note" aria-live="polite"></div>
+      <section id="metrics" class="metrics" aria-label="Game totals"></section>
+      <div class="two-col">
+        <section id="seasons" class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">Across the years</p><h2>Games by season</h2></div><span class="tag">June–May</span></div><p class="panel-note">Rink and level filters apply to this comparison.</p><div id="season-chart" class="chart" role="img" aria-label="Games by season"></div></section>
+        <section class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">On the calendar</p><h2 id="monthly-title">Monthly games</h2></div></div><p id="monthly-note" class="panel-note"></p><div id="month-chart" class="chart" role="img" aria-label="Games by month"></div></section>
+      </div>
+      <div class="two-col rankings">
+        <section id="rinks" class="panel"><div class="panel-heading"><div><p class="eyebrow">Places worked</p><h2>Rinks</h2></div><span id="rink-count" class="tag"></span></div><table><caption class="sr-only">Rinks ranked by games</caption><thead><tr><th scope="col">Rink</th><th scope="col" class="numeric">Games</th><th scope="col" class="numeric">Hours</th></tr></thead><tbody id="rink-rows"></tbody></table><button class="text-button" id="all-rinks">Show all rinks</button></section>
+        <section id="partners" class="panel"><div class="panel-heading"><div><p class="eyebrow">Shared assignments</p><h2>Partners</h2></div><span id="partner-count" class="tag"></span></div><p class="panel-note">First names and last initials. Matching labels can refer to different people.</p><table><caption class="sr-only">Partners ranked by games together</caption><thead><tr><th scope="col">Partner</th><th scope="col" class="numeric">Games together</th></tr></thead><tbody id="partner-rows"></tbody></table><button class="text-button" id="all-partners">Show all partners</button></section>
+      </div>
+      <section class="panel level-panel"><div class="panel-heading"><div><p class="eyebrow">Types of games</p><h2>Game levels</h2></div></div><div id="level-bars" class="level-bars"></div></section>
+      <section id="games" class="panel log-panel"><div class="panel-heading"><div><p class="eyebrow">The latest entries</p><h2>Game log</h2></div><button class="quiet-button" id="download">Download filtered CSV</button></div><div class="table-scroll"><table><caption class="sr-only">Most recent games matching the filters</caption><thead><tr><th scope="col">Date</th><th scope="col">Rink</th><th scope="col">Level</th><th scope="col" class="numeric">Hours</th><th scope="col">Partners</th></tr></thead><tbody id="game-rows"></tbody></table></div><div class="pagination"><button id="previous" class="quiet-button">Previous</button><span id="page-note"></span><button id="next" class="quiet-button">Next</button></div></section>
+    </section>
   </main>
   <footer class="shell footer"><p>Carson Strachan · Refereeing</p><p>Hours reflect the game lengths in the log.</p><a href="https://github.com/warpedcanadian/referee-profile">View the project on GitHub</a></footer>
 </body>
