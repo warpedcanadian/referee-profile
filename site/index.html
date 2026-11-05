@@ -6,8 +6,8 @@
   <meta name="description" content="Meet hockey official Carson Strachan and explore his officiating experience and game stats.">
   <meta name="theme-color" content="#121212">
   <title>Carson Strachan · Hockey Official</title>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="styles.css?v=rink-map">
+  <script type="module" src="app.js?v=rink-map"></script>
 </head>
 <body>
   <a class="skip-link" href="#dashboard">Skip to dashboard</a>
@@ -26,6 +26,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Ice hockey official</p>
           <h1>Carson<br>Strachan</h1>
+          <p class="hero-location">Greater Salt Lake City, UT</p>
           <p class="hero-detail">Officiating experience and game stats from youth, high school, junior, college, and adult hockey.</p>
           <a class="primary-link" href="#dashboard">Explore the stats <span aria-hidden="true">↓</span></a>
         </div>
@@ -102,6 +103,18 @@
       </section>
       <div id="results" class="results-note" aria-live="polite"></div>
       <section id="metrics" class="metrics" aria-label="Game totals"></section>
+      <section id="rink-map" class="panel rink-map" aria-labelledby="rink-map-title">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Places worked</p><h2 id="rink-map-title">Rink locations</h2></div>
+        </div>
+        <p id="map-summary" class="panel-note" aria-live="polite"></p>
+        <div class="map-frame" id="map-frame" hidden>
+          <svg id="map-outlines" viewBox="0 0 960 570" aria-hidden="true"></svg>
+          <div id="map-markers" class="map-markers" role="group" aria-label="Select a rink location"></div>
+        </div>
+        <div id="map-details" class="map-details" aria-live="polite" hidden></div>
+        <p class="map-source">Markers show city locations. <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html">U.S. Census Bureau boundaries</a></p>
+      </section>
       <div class="two-col">
         <section id="seasons" class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">Across the years</p><h2>Games by season</h2></div><span class="tag">June–May</span></div><p class="panel-note">Rink and level filters apply to this comparison.</p><div id="season-chart" class="chart" role="img" aria-label="Games by season"></div></section>
         <section class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">On the calendar</p><h2 id="monthly-title">Monthly games</h2></div></div><p id="monthly-note" class="panel-note"></p><div id="month-chart" class="chart" role="img" aria-label="Games by month"></div></section>

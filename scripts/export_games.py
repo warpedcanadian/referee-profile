@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import datetime as dt
+import gzip
 import io
 import json
 import math
@@ -18,6 +19,12 @@ PARTNER_MAP = ROOT / '.local' / 'partner-map.json'
 PUBLIC_KEYS = {'date', 'season', 'rink', 'level', 'hours', 'partners', 'solo'}
 RINK_ALIASES = {'The Maverik Center': 'Maverik Center'}
 LEVEL_ALIASES = {'PeeWee': 'Pee Wee', 'Pee Wees': 'Pee Wee', 'Squirts': 'Squirt'}
+LOCATION_ALIASES = {
+    'acord ice center': 'acord ice arena',
+    "children's health starcenter - farmer branch": "children's health starcenter - farmers branch",
+    'marathon park ice arena': 'marathon park ice rink',
+    'the maverik center': 'maverik center',
+}
 
 def atomic_json(path: Path, value: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -85,6 +92,39 @@ def games_from_rows(headers, rows, epoch, identity_map):
     if not records: raise ValueError('No dated games were found. The previous published data is retained.')
     return sorted(records, key=lambda r: r['date'])
 
+def location_key(value):
+    key = ' '.join(str(value).split()).casefold()
+    return LOCATION_ALIASES.get(key, key)
+
+
+def read_locations(sheet):
+    rows = sheet.values
+    headers = next(rows, ())
+    columns = {str(label).strip().casefold(): index for index, label in enumerate(headers)}
+    name_column = columns.get('rink', columns.get('site'))
+    if name_column is None or 'city' not in columns or 'state' not in columns:
+        raise ValueError('The Rinks tab needs Rink (or Site), City, and State column headers.')
+
+    with gzip.open(ROOT / 'scripts/us-places.json.gz', 'rt', encoding='utf-8') as source:
+        gazetteer = json.load(source)
+    locations = {}
+    for number, row in enumerate(rows, 2):
+        name, city, state = (str(row[index] or '').strip() for index in (name_column, columns['city'], columns['state']))
+        if not name or not city or not state:
+            continue
+        state = gazetteer['states'].get(state.casefold(), state.upper() if len(state) == 2 else state)
+        city_key = ' '.join(city.split()).casefold()
+        point = gazetteer['places'].get(state, {}).get(city_key)
+        location = {'city': city, 'state': state}
+        if point:
+            location['latitude'], location['longitude'] = point
+        key = location_key(name)
+        if key in locations and locations[key] != location:
+            raise ValueError(f'Rinks row {number} lists a conflicting location for {name}.')
+        locations[key] = location
+    return locations
+
+
 def export(workbook_path: Path, output_path: Path = ROOT / 'site/data/games.json', map_path: Path = PARTNER_MAP):
     # Read a stable snapshot without saving or recalculating the user's workbook.
     before = workbook_path.stat()
@@ -105,12 +145,22 @@ def export(workbook_path: Path, output_path: Path = ROOT / 'site/data/games.json
         iterator = sheet.iter_rows(min_row=r1, max_row=r2, min_col=c1, max_col=c2, values_only=True)
         headers = next(iterator)
         records = games_from_rows(headers, iterator, wb.epoch, identities)
+        locations = read_locations(wb['Rinks']) if 'Rinks' in wb.sheetnames else None
     finally: wb.close()
     old = json.loads(output_path.read_text(encoding='utf-8')) if output_path.exists() else {}
     payload = {'schemaVersion': 1, 'dataThrough': records[-1]['date'], 'seasonStartMonth': 6,
         'privacy': {'fees': False, 'partnerNames': 'first-name-last-initial', 'equipment': False, 'notes': False},
         'games': records}
-    if all(old.get(k) == value for k, value in payload.items()):
+    if locations is None:
+        locations = {location_key(name): entry for name, entry in old.get('rinks', {}).items()}
+    rinks = {}
+    for name in sorted({record['rink'] for record in records}):
+        location = locations.get(location_key(name))
+        if location:
+            rinks[name] = location
+    if rinks:
+        payload['rinks'] = rinks
+    if {key: value for key, value in old.items() if key != 'updatedAt'} == payload:
         return False, len(records)
     payload['updatedAt'] = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
     # Stable random public identities keep two "Alex A." partners distinct.

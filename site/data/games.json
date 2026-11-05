@@ -31519,5 +31519,355 @@
       "solo": false
     }
   ],
-  "updatedAt": "2026-11-05T01:09:56+00:00"
+  "rinks": {
+    "Acord Ice Arena": {
+      "city": "West Valley City",
+      "state": "UT",
+      "latitude": 40.68849,
+      "longitude": -112.01176
+    },
+    "America First Center": {
+      "city": "Henderson",
+      "state": "NV",
+      "latitude": 36.00896,
+      "longitude": -115.0268
+    },
+    "Black Rock Event Center": {
+      "city": "Heber City",
+      "state": "UT",
+      "latitude": 40.54165,
+      "longitude": -111.38788
+    },
+    "Bob Suter's Legacy 20 Arena": {
+      "city": "Middleton",
+      "state": "WI",
+      "latitude": 43.10696,
+      "longitude": -89.50634
+    },
+    "Buffalo Wild Wings": {
+      "city": "Troy",
+      "state": "MI",
+      "latitude": 42.58388,
+      "longitude": -83.14553
+    },
+    "Butte Community Ice Center": {
+      "city": "Butte",
+      "state": "MT",
+      "latitude": 45.96255,
+      "longitude": -112.53352
+    },
+    "Casper Ice Arena": {
+      "city": "Casper",
+      "state": "WY",
+      "latitude": 42.84212,
+      "longitude": -106.32128
+    },
+    "Children's Health StarCenter - Farmers Branch": {
+      "city": "Farmers Branch",
+      "state": "TX",
+      "latitude": 32.92779,
+      "longitude": -96.87854
+    },
+    "Children's Health StarCenter - McKinney": {
+      "city": "McKinney",
+      "state": "TX",
+      "latitude": 33.20112,
+      "longitude": -96.66416
+    },
+    "Children's Health StarCenter - Plano": {
+      "city": "Plano",
+      "state": "TX",
+      "latitude": 33.05077,
+      "longitude": -96.74794
+    },
+    "Children's Health StarCenter - Richardson": {
+      "city": "Richardson",
+      "state": "TX",
+      "latitude": 32.97229,
+      "longitude": -96.70807
+    },
+    "Children's Health StarCenter - Valley Ranch": {
+      "city": "Irving",
+      "state": "TX",
+      "latitude": 32.85775,
+      "longitude": -96.97002
+    },
+    "City National Arena": {
+      "city": "Las Vegas",
+      "state": "NV",
+      "latitude": 36.2335,
+      "longitude": -115.26404
+    },
+    "Cottonwood Heights Recreation Center": {
+      "city": "Cottonwood Heights",
+      "state": "UT",
+      "latitude": 40.61368,
+      "longitude": -111.81455
+    },
+    "County Ice Center": {
+      "city": "Murray",
+      "state": "UT",
+      "latitude": 40.65065,
+      "longitude": -111.88657
+    },
+    "Decatur Civic Center": {
+      "city": "Decatur",
+      "state": "IL",
+      "latitude": 39.85598,
+      "longitude": -88.93375
+    },
+    "Eccles Ice Center": {
+      "city": "North Logan",
+      "state": "UT",
+      "latitude": 41.77554,
+      "longitude": -111.80665
+    },
+    "Eveleth Hippodrome": {
+      "city": "Eveleth",
+      "state": "MN",
+      "latitude": 47.47492,
+      "longitude": -92.54961
+    },
+    "Fogerty Ice Arena": {
+      "city": "Blaine",
+      "state": "MN",
+      "latitude": 45.17052,
+      "longitude": -93.20609
+    },
+    "Four Seasons Centre": {
+      "city": "Owatonna",
+      "state": "MN",
+      "latitude": 44.0919,
+      "longitude": -93.23171
+    },
+    "Great Falls Ice Plex": {
+      "city": "Great Falls",
+      "state": "MT",
+      "latitude": 47.50252,
+      "longitude": -111.29997
+    },
+    "Haynes Pavilion": {
+      "city": "Bozeman",
+      "state": "MT",
+      "latitude": 45.68315,
+      "longitude": -111.05378
+    },
+    "Ice Den Chandler": {
+      "city": "Chandler",
+      "state": "AZ",
+      "latitude": 33.28276,
+      "longitude": -111.85182
+    },
+    "Ice Den Scottsdale": {
+      "city": "Scottsdale",
+      "state": "AZ",
+      "latitude": 33.68427,
+      "longitude": -111.86145
+    },
+    "Isanti Ice Arena": {
+      "city": "Isanti",
+      "state": "MN",
+      "latitude": 45.49155,
+      "longitude": -93.24282
+    },
+    "KJ's Ice Barn": {
+      "city": "Enoch",
+      "state": "UT",
+      "latitude": 37.76658,
+      "longitude": -113.04526
+    },
+    "Lakeland Ice Arena": {
+      "city": "Waterford Township",
+      "state": "MI",
+      "latitude": 42.66198,
+      "longitude": -83.38792
+    },
+    "Mammoth Practice Facility": {
+      "city": "Sandy",
+      "state": "UT",
+      "latitude": 40.57171,
+      "longitude": -111.84987
+    },
+    "Marathon Park Ice Rink": {
+      "city": "Wausau",
+      "state": "WI",
+      "latitude": 44.96177,
+      "longitude": -89.64654
+    },
+    "Mason City Arena": {
+      "city": "Mason City",
+      "state": "IA",
+      "latitude": 43.14776,
+      "longitude": -93.2004
+    },
+    "Maverik Center": {
+      "city": "West Valley City",
+      "state": "UT",
+      "latitude": 40.68849,
+      "longitude": -112.01176
+    },
+    "Mountain America Center": {
+      "city": "Idaho Falls",
+      "state": "ID",
+      "latitude": 43.48962,
+      "longitude": -112.03534
+    },
+    "NSC Super Rink": {
+      "city": "Minneapolis",
+      "state": "MN",
+      "latitude": 44.96332,
+      "longitude": -93.26832
+    },
+    "NYTEX Sports Center": {
+      "city": "North Richland Hills",
+      "state": "TX",
+      "latitude": 32.86058,
+      "longitude": -97.21915
+    },
+    "Novi Ice Arena": {
+      "city": "Novi",
+      "state": "MI",
+      "latitude": 42.47849,
+      "longitude": -83.48682
+    },
+    "Onyx Ice Arena": {
+      "city": "Rochester",
+      "state": "MI",
+      "latitude": 42.68664,
+      "longitude": -83.11972
+    },
+    "Outpost Ice Arena": {
+      "city": "Albuquerque",
+      "state": "NM",
+      "latitude": 35.10478,
+      "longitude": -106.64681
+    },
+    "Park City Ice Arena": {
+      "city": "Park City",
+      "state": "UT",
+      "latitude": 40.65733,
+      "longitude": -111.49376
+    },
+    "Peaks Ice Arena": {
+      "city": "Provo",
+      "state": "UT",
+      "latitude": 40.24531,
+      "longitude": -111.64506
+    },
+    "Riley Arena and Community Events Center": {
+      "city": "Cody",
+      "state": "WY",
+      "latitude": 44.52124,
+      "longitude": -109.05747
+    },
+    "Rochester Recreation Center": {
+      "city": "Rochester",
+      "state": "MN",
+      "latitude": 44.0143,
+      "longitude": -92.47859
+    },
+    "Rock Springs Family Recreation Center": {
+      "city": "Rock Springs",
+      "state": "WY",
+      "latitude": 41.5947,
+      "longitude": -109.22092
+    },
+    "Roosevelt Park Ice Arena": {
+      "city": "Rapid City",
+      "state": "SD",
+      "latitude": 44.07107,
+      "longitude": -103.21792
+    },
+    "Runestone Community Center": {
+      "city": "Alexandria",
+      "state": "MN",
+      "latitude": 45.87718,
+      "longitude": -95.37696
+    },
+    "Salt Lake City Sports Complex": {
+      "city": "Salt Lake City",
+      "state": "UT",
+      "latitude": 40.77693,
+      "longitude": -111.93099
+    },
+    "Snow King Sports & Events Center": {
+      "city": "Jackson",
+      "state": "WY",
+      "latitude": 43.47194,
+      "longitude": -110.77527
+    },
+    "South Davis Recreation Center": {
+      "city": "Bountiful",
+      "state": "UT",
+      "latitude": 40.87248,
+      "longitude": -111.8612
+    },
+    "Spirit Hall Ice Arena": {
+      "city": "Gillette",
+      "state": "WY",
+      "latitude": 44.27258,
+      "longitude": -105.49894
+    },
+    "Spooner Civic Center": {
+      "city": "Spooner",
+      "state": "WI",
+      "latitude": 45.82592,
+      "longitude": -91.88613
+    },
+    "Steed Arena": {
+      "city": "Helena",
+      "state": "MT",
+      "latitude": 46.59656,
+      "longitude": -112.02177
+    },
+    "Suburban Ice Farmington Hills": {
+      "city": "Farmington Hills",
+      "state": "MI",
+      "latitude": 42.48565,
+      "longitude": -83.37596
+    },
+    "Troy Sports Center": {
+      "city": "Troy",
+      "state": "MI",
+      "latitude": 42.58388,
+      "longitude": -83.14553
+    },
+    "Utah Olympic Oval": {
+      "city": "Kearns",
+      "state": "UT",
+      "latitude": 40.65194,
+      "longitude": -112.00939
+    },
+    "Verona Ice Arena": {
+      "city": "Verona",
+      "state": "WI",
+      "latitude": 42.99126,
+      "longitude": -89.53925
+    },
+    "Weber Ice Sheet": {
+      "city": "Ogden",
+      "state": "UT",
+      "latitude": 41.22839,
+      "longitude": -111.96815
+    },
+    "Western Park Ice Arena": {
+      "city": "Vernal",
+      "state": "UT",
+      "latitude": 40.4517,
+      "longitude": -109.53801
+    },
+    "Whitney Rink in the M&M's Center": {
+      "city": "Sheridan",
+      "state": "WY",
+      "latitude": 44.79622,
+      "longitude": -106.96417
+    },
+    "Willmar Civic Center": {
+      "city": "Willmar",
+      "state": "MN",
+      "latitude": 45.12103,
+      "longitude": -95.05873
+    }
+  },
+  "updatedAt": "2026-11-05T01:21:10+00:00"
 }

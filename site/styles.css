@@ -81,6 +81,13 @@
 
 .hero .eyebrow { color: var(--accent); }
 
+.hero-location {
+  margin: 20px 0 0;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .hero h1 {
   margin: 0;
   font-size: clamp(54px, 8.8vw, 124px);
@@ -173,6 +180,38 @@
 .dashboard-intro { padding-top: 34px; border-top: 1px solid var(--line); }
 .dashboard-coverage { margin: 12px 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .dashboard-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; color: var(--muted); font-size: 12px; }
+.rink-map { margin-bottom: 24px; }
+.map-frame { position: relative; max-width: 960px; margin-inline: auto; background: #f7f7f6; border-radius: 10px; }
+.map-frame svg { display: block; width: 100%; height: auto; }
+.map-frame svg path { fill: #e8e6e4; fill-rule: evenodd; stroke: #a5a19d; stroke-width: 1; }
+.map-frame svg text { text-anchor: middle; fill: var(--muted); font-size: 15px; }
+.map-markers { position: absolute; inset: 0; pointer-events: none; }
+
+.map-marker {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--accent-dark);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  pointer-events: auto;
+}
+
+.map-marker:hover, .map-marker[aria-pressed="true"] { z-index: 1; background: var(--ink); }
+.map-marker:focus-visible { z-index: 2; outline-offset: 1px; }
+.map-details { max-width: 960px; margin: 16px auto 0; padding: 14px; border: 1px solid var(--line); border-radius: 9px; }
+.map-details h3 { margin: 0 0 10px; font-size: 15px; }
+.map-details ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 8px 16px; margin: 0; padding: 0; list-style: none; }
+.map-details li { display: grid; gap: 2px; font-size: 13px; }
+.map-details li span, .map-source { color: var(--muted); font-size: 11px; }
+.map-source { margin: 12px 0 0; }
 .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-dark); }
 .season-note { margin-left: auto; }
 .metric:first-child :is(.metric-label, .metric-unit) { color: var(--ink); }
